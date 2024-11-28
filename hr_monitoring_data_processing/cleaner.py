@@ -10,12 +10,11 @@ def filter_nondigits(data: list) -> list:
     """
     new_data = []
     for line in data:
-        if line.isdigit:
-            new_data.append(int(line.strip())) 
+        line = line.strip()
+        if line.isdigit():
+            new_data.append(int(line))
     return new_data
         
-in_data = ["1\n", "\n", "3\n", "4\n", "5\n", "\n", "7\n"]
-print(filter_nondigits(in_data))
 
 def filter_outliers(data: list) -> list:
     pass
