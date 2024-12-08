@@ -9,6 +9,7 @@ def filter_nondigits(data: list) -> list:
         list[int]: list of integers, with all non-digit strings removed
     """
     new_data = []
+
     for line in data:
         line = line.strip()
         if line.isdigit():
@@ -17,6 +18,15 @@ def filter_nondigits(data: list) -> list:
         
 
 def filter_outliers(data: list) -> list:
+    """ Filter out integers that are greater than 30 & less than 250
+    
+    Args: 
+        data (list[int]): list of integers representing heart rate samples.
+            Might contain outliers or missing data
+    
+    Returns:
+         list[int]: list of integers between 30 & 250
+    """
     new_data = []
     for num in data:
         if num > 30 and num < 250:

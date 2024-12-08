@@ -22,16 +22,17 @@ So average of
 [1, 3], [4, 2], [8, 10], 12
 [2, 3, 9, 12]'''
     
-    
+
     window_size = n    
     maximum = []
+
+    if len(data) == 0 or window_size <= 0:
+        return []
 
     for num in range(0, len(data), window_size):
          window = data[num:num + window_size]
          maximum.append(max(window))
     return maximum
-
-
 
 def window_average(data: list, n: int) -> list:
     pass
