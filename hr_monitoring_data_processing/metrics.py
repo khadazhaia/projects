@@ -35,8 +35,24 @@ So average of
     return maximum
 
 def window_average(data: list, n: int) -> list:
-    pass
+    """
+    Calculate average value of every "n"-size window
 
+    Args:
+        data (list[int]): list of integers representing heart rate samples
+        n (int): The size of your window
+    Returns:
+        list[int]: list of averages from each window 
+    """
+     
        
 def window_stddev(data: list, n: int) -> list:
-    pass
+    """
+    Calculate standard deviation value of every "n"-size window
+
+    Args:
+        data (list[int]): list of integers representing heart rate samples
+        n (int): The size of your window
+    Returns:
+        list[int]: list of standard deviation from each window 
+    """
