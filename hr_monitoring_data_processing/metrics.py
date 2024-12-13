@@ -1,3 +1,5 @@
+import statistics as stats
+
 def window_max(data: list, n: int) -> list:
     """
     Calculate maximum value of every "n"-size window
@@ -44,6 +46,17 @@ def window_average(data: list, n: int) -> list:
     Returns:
         list[int]: list of averages from each window 
     """
+
+    window_size = n    
+    average = []
+
+    if len(data) == 0 or window_size <= 0:
+        return []
+
+    for num in range(0, len(data), window_size):
+         window = data[num:num + window_size]
+         average.append(sum(window) / len(window))
+    return average
      
        
 def window_stddev(data: list, n: int) -> list:
@@ -56,3 +69,19 @@ def window_stddev(data: list, n: int) -> list:
     Returns:
         list[int]: list of standard deviation from each window 
     """
+   
+    window_size = n    
+    standard_dev = []
+
+    if len(data) == 0 or window_size <= 0:
+        return []
+
+    for num in range(0, len(data), window_size):
+         window = data[num:num + window_size]
+         window_average = sum(window) // len(window)
+         for s in window:
+             square_diff = (s - window_average) ** 2
+             standard_dev.append(square_diff)
+         variance = sum(square_diff) / len(square_diff)
+         standard_dev.append(stats.stdev(variance))
+    return standard_dev
