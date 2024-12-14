@@ -33,7 +33,18 @@ def run(filename: str) -> None:
     data = []
 
     # open file and read into the `data` list
-    ...
+    path = open(filename)
+    for line in path:
+        data.append(line)
+
+    # filter out all non-digits 
+    data = filter_nondigits(data)
+    
+    # filter out all outliers
+
+    # calc max, average and standard dev
+
+    # save the plots
 
     # return all 3 lists
     ...

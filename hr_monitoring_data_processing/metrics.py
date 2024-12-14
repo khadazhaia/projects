@@ -1,4 +1,4 @@
-import statistics as stats
+import math
 
 def window_max(data: list, n: int) -> list:
     """
@@ -70,18 +70,23 @@ def window_stddev(data: list, n: int) -> list:
         list[int]: list of standard deviation from each window 
     """
    
-    window_size = n    
+    window_size = n  
     standard_dev = []
 
-    if len(data) == 0 or window_size <= 0:
+    if len(data) == 0 or window_size <= 1:
         return []
 
     for num in range(0, len(data), window_size):
          window = data[num:num + window_size]
-         window_average = sum(window) // len(window)
-         for s in window:
-             square_diff = (s - window_average) ** 2
-             standard_dev.append(square_diff)
-         variance = sum(square_diff) / len(square_diff)
-         standard_dev.append(stats.stdev(variance))
+         # To calculate the standard deviation of a set of data, follow these steps:
+         #calculate the average 
+         average = sum(window) / len(window)
+         # calculate the variance 
+         sd_sum = 0
+         for digit in window:
+            square_diff = (digit - average) ** 2
+            sd_sum += square_diff
+         variance = sd_sum / len(window)
+         # Calculate the standard deviation
+         standard_dev.append(math.sqrt(variance))
     return standard_dev
