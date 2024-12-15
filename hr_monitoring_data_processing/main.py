@@ -44,18 +44,18 @@ def run(filename: str) -> None:
     data  = filter_outliers(data)
 
     # calc max, average and standard dev
-    calc_max = window_max(data)
-    calc_average = window_average(data)
-    calc_standard_dev = window_stddev(data)
+    calc_max = window_max(data, 3)
+    calc_average = window_average(data, 3)
+    calc_standard_dev = window_stddev(data, 3)
 
     # save the plots
-    plt.plot(calc_max)
-    plt.savefig("images/maximum1.png")
-
+    # plt.plot(calc_max)
+    # plt.savefig("images/maximums.png")
 
     # return all 3 lists
-    ...
+    return calc_max, calc_average, calc_standard_dev
 
-
-if __name__ == "__main__":
-    run("data/data1.txt")
+print(run("data/data1.txt"))
+# if __name__ == "__main__":
+#     run("data/data1.txt")
+ 
