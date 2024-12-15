@@ -10,6 +10,9 @@ def filter_nondigits(data: list) -> list:
     """
     new_data = []
 
+    if len(data) == 0:
+        return data
+
     for line in data:
         line = line.strip()
         if line.isdigit():
@@ -28,6 +31,10 @@ def filter_outliers(data: list) -> list:
          list[int]: list of integers between 30 & 250
     """
     new_data = []
+
+    if len(data) == 0:
+        return data 
+    
     for num in data:
         if num > 30 and num < 250:
             new_data.append(num)     

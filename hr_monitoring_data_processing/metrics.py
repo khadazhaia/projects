@@ -1,4 +1,4 @@
-import math
+import statistics as stat
 
 def window_max(data: list, n: int) -> list:
     """
@@ -23,16 +23,14 @@ So average of
 
 [1, 3], [4, 2], [8, 10], 12
 [2, 3, 9, 12]'''
-    
-
-    window_size = n    
+      
     maximum = []
 
-    if len(data) == 0 or window_size <= 0:
+    if len(data) == 0 or n <= 0:
         return []
 
-    for num in range(0, len(data), window_size):
-         window = data[num:num + window_size]
+    for num in range(0, len(data), n):
+         window = data[num:num + n]
          maximum.append(max(window))
     return maximum
 
@@ -46,15 +44,14 @@ def window_average(data: list, n: int) -> list:
     Returns:
         list[int]: list of averages from each window 
     """
-
-    window_size = n    
+  
     average = []
 
-    if len(data) == 0 or window_size <= 0:
+    if len(data) == 0 or n <= 0:
         return []
 
-    for num in range(0, len(data), window_size):
-         window = data[num:num + window_size]
+    for num in range(0, len(data), n):
+         window = data[num:num + n]
          average.append(sum(window) / len(window))
     return average
      
@@ -69,24 +66,17 @@ def window_stddev(data: list, n: int) -> list:
     Returns:
         list[int]: list of standard deviation from each window 
     """
-   
-    window_size = n  
+    
     standard_dev = []
 
-    if len(data) == 0 or window_size <= 1:
+
+    if len(data) == 0 or n <= 0:
         return []
 
-    for num in range(0, len(data), window_size):
-         window = data[num:num + window_size]
-         # To calculate the standard deviation of a set of data, follow these steps:
-         #calculate the average 
-         average = sum(window) / len(window)
-         # calculate the variance 
-         sd_sum = 0
-         for digit in window:
-            square_diff = (digit - average) ** 2
-            sd_sum += square_diff
-         variance = sd_sum / len(window)
-         # Calculate the standard deviation
-         standard_dev.append(math.sqrt(variance))
+    for num in range(0, len(data), n):
+         window = data[num:num + n]
+         if len(window) > 1:
+             standard = stat.stdev(window)
+             string = f"{standard:.02f}"
+             standard_dev.append(float(string))
     return standard_dev
