@@ -36,26 +36,39 @@ def run(filename: str) -> None:
     path = open(filename)
     for line in path:
         data.append(line)
+    path.close()
 
-    # filter out all non-digits 
+    # filter out all non-digits and outliers
     data = filter_nondigits(data)
-    
-    # filter out all outliers
     data  = filter_outliers(data)
 
     # calc max, average and standard dev
-    calc_max = window_max(data, 3)
-    calc_average = window_average(data, 3)
-    calc_standard_dev = window_stddev(data, 3)
+    max = window_max(data, 6)
+    average = window_average(data, 6)
+    standard_dev = window_stddev(data, 6)
 
     # save the plots
-    # plt.plot(calc_max)
-    # plt.savefig("images/maximums.png")
+    plt.plot(max)
+    plt.xlabel(" ")
+    plt.ylabel(" ")
+    plt.show()
+    plt.savefig("images/maximums.png")
+
+    plt.plot(average)
+    plt.xlabel(" ")
+    plt.ylabel(" ")
+    plt.show()
+    plt.savefig("images/averages.png")
+  
+    plt.plot(standard_dev)
+    plt.xlabel(" ")
+    plt.ylabel(" ")
+    plt.show()
+    plt.savefig("images/stdevs.png")
 
     # return all 3 lists
-    return calc_max, calc_average, calc_standard_dev
+    return max, average, standard_dev
 
-print(run("data/data1.txt"))
-# if __name__ == "__main__":
-#     run("data/data1.txt")
+if __name__ == "__main__":
+    run("data/data1.txt")
  
