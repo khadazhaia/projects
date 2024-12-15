@@ -41,10 +41,17 @@ def run(filename: str) -> None:
     data = filter_nondigits(data)
     
     # filter out all outliers
+    data  = filter_outliers(data)
 
     # calc max, average and standard dev
+    calc_max = window_max(data)
+    calc_average = window_average(data)
+    calc_standard_dev = window_stddev(data)
 
     # save the plots
+    plt.plot(calc_max)
+    plt.savefig("images/maximum1.png")
+
 
     # return all 3 lists
     ...

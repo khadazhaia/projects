@@ -69,7 +69,6 @@ def window_stddev(data: list, n: int) -> list:
     
     standard_dev = []
 
-
     if len(data) == 0 or n <= 0:
         return []
 
