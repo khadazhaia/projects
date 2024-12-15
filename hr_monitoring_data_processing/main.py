@@ -43,31 +43,31 @@ def run(filename: str) -> None:
     data  = filter_outliers(data)
 
     # calc max, average and standard dev
-    max = window_max(data, 6)
-    average = window_average(data, 6)
-    standard_dev = window_stddev(data, 6)
+    rolling_max = window_max(data, 6)
+    rolling_average = window_average(data, 6)
+    rolling_stdev = window_stddev(data, 6)
 
     # save the plots
-    plt.plot(max)
+    plt.plot(rolling_max)
     plt.xlabel(" ")
     plt.ylabel(" ")
     plt.show()
     plt.savefig("images/maximums.png")
 
-    plt.plot(average)
+    plt.plot(rolling_average)
     plt.xlabel(" ")
     plt.ylabel(" ")
     plt.show()
     plt.savefig("images/averages.png")
   
-    plt.plot(standard_dev)
+    plt.plot(rolling_stdev)
     plt.xlabel(" ")
     plt.ylabel(" ")
     plt.show()
     plt.savefig("images/stdevs.png")
 
     # return all 3 lists
-    return max, average, standard_dev
+    return rolling_max, rolling_average, rolling_stdev
 
 if __name__ == "__main__":
     run("data/data1.txt")
