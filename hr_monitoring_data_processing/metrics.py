@@ -64,7 +64,7 @@ def window_stddev(data: list, n: int) -> list:
         data (list[int]): list of integers representing heart rate samples
         n (int): The size of your window
     Returns:
-        list[int]: list of standard deviation from each window 
+        list[float]: list of standard deviation from each window 
     """
     
     standard_dev = []
