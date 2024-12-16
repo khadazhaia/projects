@@ -86,6 +86,5 @@ def window_stddev(data: list, n: int) -> list:
          window = data[num:num + n]
          if len(window) > 1:
              standard = stat.stdev(window)
-             string = f"{standard:.02f}"
-             standard_dev.append(float(string))
+             standard_dev.append(round(standard, 2))
     return standard_dev
