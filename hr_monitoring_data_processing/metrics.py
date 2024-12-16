@@ -23,12 +23,14 @@ So average of
 
 [1, 3], [4, 2], [8, 10], 12
 [2, 3, 9, 12]'''
-      
+    
+    # Intialize an empty list and error handling 
     maximum = []
 
     if len(data) == 0 or n <= 0:
         return []
 
+    # Using a for loop iterate over the dataset based on the window size, calculating the max of each window size and then appending it to the intialized list 
     for num in range(0, len(data), n):
          window = data[num:num + n]
          maximum.append(max(window))
@@ -42,18 +44,20 @@ def window_average(data: list, n: int) -> list:
         data (list[int]): list of integers representing heart rate samples
         n (int): The size of your window
     Returns:
-        list[int]: list of averages from each window 
+        list[float]: list of averages from each window 
     """
-  
+    
+    # Intialize an empty list and error handling 
     average = []
 
     if len(data) == 0 or n <= 0:
         return []
-
+    
+    # Using a for loop iterate over the dataset based on the window size, calculating the average of each window size and then appending it to the intialized list 
     for num in range(0, len(data), n):
          window = data[num:num + n]
-         mean = sum(window) / len(window)
-         average.append(round(mean, 2))
+         math = sum(window) / len(window)
+         average.append(round(math, 2))
     return average
      
        
@@ -68,11 +72,13 @@ def window_stddev(data: list, n: int) -> list:
         list[float]: list of standard deviation from each window 
     """
     
+    # Intialize an empty list and error handling 
     standard_dev = []
 
     if len(data) == 0 or n <= 0:
         return []
 
+    # Using a for loop iterate over the dataset based on the window size, calculating the standard deviation of each window size and then appending it to the intialized list 
     for num in range(0, len(data), n):
          window = data[num:num + n]
          if len(window) > 1:
