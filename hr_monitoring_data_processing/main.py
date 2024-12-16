@@ -34,10 +34,10 @@ def run(filename: str) -> None:
     data = []
 
     # Open file and read into the `data` list
-    path = open(filename)
-    for line in path:
+    file = open(filename)
+    for line in file:
         data.append(line)
-    path.close()
+    file.close()
 
     # Filter out all non-digits and outliers in data 
     data = filter_nondigits(data)
@@ -60,7 +60,7 @@ def run(filename: str) -> None:
     plt.plot(rolling_stdev)
     plt.savefig("images/stdevs.png", dpi=300, bbox_inches="tight")
     plt.clf() 
-
+    
     # Return all 3 lists
     return rolling_max, rolling_average, rolling_stdev
 
