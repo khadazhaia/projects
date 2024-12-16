@@ -49,22 +49,16 @@ def run(filename: str) -> None:
 
     # save the plots
     plt.plot(rolling_max)
-    plt.xlabel(" ")
-    plt.ylabel(" ")
-    plt.show()
-    plt.savefig("images/maximums.png")
+    plt.savefig("images/maximums.png", dpi=300, bbox_inches="tight")
+    plt.clf() 
 
     plt.plot(rolling_average)
-    plt.xlabel(" ")
-    plt.ylabel(" ")
-    plt.show()
-    plt.savefig("images/averages.png")
+    plt.savefig("images/averages.png", dpi=300, bbox_inches="tight")
+    plt.clf() 
   
     plt.plot(rolling_stdev)
-    plt.xlabel(" ")
-    plt.ylabel(" ")
-    plt.show()
-    plt.savefig("images/stdevs.png")
+    plt.savefig("images/stdevs.png", dpi=300, bbox_inches="tight")
+    plt.clf() 
 
     # return all 3 lists
     return rolling_max, rolling_average, rolling_stdev

@@ -52,7 +52,8 @@ def window_average(data: list, n: int) -> list:
 
     for num in range(0, len(data), n):
          window = data[num:num + n]
-         average.append(sum(window) // len(window))
+         mean = sum(window) / len(window)
+         average.append(round(mean, 2))
     return average
      
        
