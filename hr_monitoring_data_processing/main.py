@@ -30,24 +30,25 @@ def run(filename: str) -> None:
     Returns:
         list[int], list[int], list[int]: You will return the maximums, averages, and stdevs (in this order).
     """  
+    # Initalize an empty list
     data = []
 
-    # open file and read into the `data` list
+    # Open file and read into the `data` list
     path = open(filename)
     for line in path:
         data.append(line)
     path.close()
 
-    # filter out all non-digits and outliers
+    # Filter out all non-digits and outliers in data 
     data = filter_nondigits(data)
-    data  = filter_outliers(data)
+    data = filter_outliers(data)
 
-    # calc max, average and standard dev
+    # Calculate rolling max, average and standard deviation 
     rolling_max = window_max(data, 6)
     rolling_average = window_average(data, 6)
     rolling_stdev = window_stddev(data, 6)
 
-    # save the plots
+    # Save the plots to the images folders
     plt.plot(rolling_max)
     plt.savefig("images/maximums.png", dpi=300, bbox_inches="tight")
     plt.clf() 
@@ -60,7 +61,7 @@ def run(filename: str) -> None:
     plt.savefig("images/stdevs.png", dpi=300, bbox_inches="tight")
     plt.clf() 
 
-    # return all 3 lists
+    # Return all 3 lists
     return rolling_max, rolling_average, rolling_stdev
 
 if __name__ == "__main__":

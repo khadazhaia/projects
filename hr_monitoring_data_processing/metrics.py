@@ -24,13 +24,14 @@ So average of
 [1, 3], [4, 2], [8, 10], 12
 [2, 3, 9, 12]'''
     
-    # Intialize an empty list and error handling 
+    # Intialize an empty list 
     maximum = []
 
+    # Error handling
     if len(data) == 0 or n <= 0:
         return []
 
-    # Using a for loop iterate over the dataset based on the window size, calculating the max of each window size and then appending it to the intialized list 
+    # Iterate over the dataset based on the window size, calculate the maximum of each window size, and append it to the intialized list
     for num in range(0, len(data), n):
          window = data[num:num + n]
          maximum.append(max(window))
@@ -47,17 +48,18 @@ def window_average(data: list, n: int) -> list:
         list[float]: list of averages from each window 
     """
     
-    # Intialize an empty list and error handling 
+    # Intialize an empty list 
     average = []
 
+    # Error handling
     if len(data) == 0 or n <= 0:
         return []
     
-    # Using a for loop iterate over the dataset based on the window size, calculating the average of each window size and then appending it to the intialized list 
+    # Iterate over the dataset based on the window size, calculate the average of each window size, and append it to the intialized list 
     for num in range(0, len(data), n):
          window = data[num:num + n]
-         math = sum(window) / len(window)
-         average.append(round(math, 2))
+         averages = sum(window) / len(window)
+         average.append(round(averages, 2))
     return average
      
        
@@ -72,13 +74,14 @@ def window_stddev(data: list, n: int) -> list:
         list[float]: list of standard deviation from each window 
     """
     
-    # Intialize an empty list and error handling 
+    # Intialize an empty list 
     standard_dev = []
 
+    # Error handling
     if len(data) == 0 or n <= 0:
         return []
 
-    # Using a for loop iterate over the dataset based on the window size, calculating the standard deviation of each window size and then appending it to the intialized list 
+    # Iterate over the dataset based on the window size, calculate the standard deviation of each window size, and append it to the intialized list
     for num in range(0, len(data), n):
          window = data[num:num + n]
          if len(window) > 1:
