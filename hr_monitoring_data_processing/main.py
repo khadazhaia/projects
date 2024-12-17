@@ -53,17 +53,14 @@ def run(filename: str) -> None:
     plt.savefig("images/maximums.png", dpi=300, bbox_inches="tight")
     plt.close()
 
-
     plt.plot(rolling_average)
     plt.savefig("images/averages.png", dpi=300, bbox_inches="tight")
     plt.close()
 
-  
     plt.plot(rolling_stdev)
     plt.savefig("images/stdevs.png", dpi=300, bbox_inches="tight")
     plt.close()
 
-    
     # Return all 3 lists
     return rolling_max, rolling_average, rolling_stdev
 
