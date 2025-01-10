@@ -9,7 +9,7 @@ r = requests.get("https://historical-forecast-api.open-meteo.com/v1/forecast?lat
 data = r.json() 
 
 # Use this URL to pull your JSON data programmatically into your Python program, and save this object into the path `data/json`.  
-# 
+
 file_path = "data/json/data.json"
 
 with open(file_path, "w") as file:
@@ -20,9 +20,6 @@ with open(file_path, "w") as file:
 
 df = pd.DataFrame(data)
 
-print(df)
-
-filtered_data = df.drop(columns=["latitude", "longitude"])
-
+filtered_data = df.drop(columns = ["latitude", "longitude","generationtime_ms","utc_offset_seconds","timezone","timezone_abbreviation","elevation","hourly_units"])
 
 filtered_data.to_csv("data/csv/data.csv")
