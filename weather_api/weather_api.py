@@ -13,13 +13,16 @@ data = r.json()
 file_path = "data/json/data.json"
 
 with open(file_path, "w") as file:
-    json.dump(data, file) 
+    json.dump(data, file, indent = 4) 
 
 
 # Remove all the meta-data from this resultant JSON file and keep only the data that describes the time and the variables listed above. Convert this modified JSON file into a CSV file and save it to the path `data/CSV/`. 
 
 df = pd.DataFrame(data)
 
+print(df)
+
 filtered_data = df.drop(columns=["latitude", "longitude"])
+
 
 filtered_data.to_csv("data/csv/data.csv")
