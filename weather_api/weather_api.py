@@ -24,4 +24,5 @@ df = pd.DataFrame(data)
 
 filtered_data = df.drop(columns = ["latitude", "longitude","generationtime_ms","utc_offset_seconds","timezone","timezone_abbreviation","elevation","hourly_units"])
 
-filtered_data.to_csv("data/csv/data.csv")
+filtered_data.to_csv("data/csv/data.csv", index=False)
+
