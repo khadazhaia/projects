@@ -10,6 +10,7 @@ r = requests.get("https://historical-forecast-api.open-meteo.com/v1/forecast?lat
 data = r.json() 
 
 
+
 # Use this URL to pull your JSON data programmatically into your Python program, and save this object into the path `data/json`.  
 
 file_path = "data/json/data.json"
@@ -18,7 +19,9 @@ with open(file_path, "w") as file:
     json.dump(data, file, indent=4) 
 
 
-# Remove all the meta-data from this resultant JSON file and keep only the data that describes the time and the variables listed above. Convert this modified JSON file into a CSV file and save it to the path `data/CSV/`. 
+
+
+# # Remove all the meta-data from this resultant JSON file and keep only the data that describes the time and the variables listed above. Convert this modified JSON file into a CSV file and save it to the path `data/CSV/`. 
 
 df = pd.DataFrame({
     "time": data["hourly"]["time"],
